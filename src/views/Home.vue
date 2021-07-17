@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchBox v-on:search-query="fetchSearchQuery" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import SearchBox from "@/components/commons/SearchBox";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    SearchBox,
+  },
+  data() {
+    return {
+      queryResults: [],
+      wikiQueryResults: [],
+    };
+  },
+  methods: {
+    fetchSearchQuery(query) {
+      console.log(query);
+      this.searchWiki(query);
+    },
+    searchWiki(query) {
+      console.log(query)
+    }
+  },
+};
 </script>
+
+<style scoped>
+</style>
