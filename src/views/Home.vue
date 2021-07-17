@@ -1,32 +1,53 @@
 <template>
   <div class="home">
-    <SearchBox v-on:search-query="fetchSearchQuery" />
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col">1 of 3</div>
+        <div class="col-6">
+          <SearchBox v-on:search-query="fetchSearchQuery" />
+          <WikipediaSearchResultList
+            v-bind:wikipediaSearchResults="queryResults"
+          />
+        </div>
+        <div class="col">3 of 3</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import SearchBox from "@/components/commons/SearchBox";
+import WikipediaSearchResultList from "@/components/wikipedia/WikipediaSearchResultList";
+import axios from "axios";
 
 export default {
   name: "Home",
   components: {
     SearchBox,
+    WikipediaSearchResultList,
   },
   data() {
     return {
       queryResults: [],
-      wikiQueryResults: [],
+      // wikiQueryResults: [],
     };
   },
   methods: {
     fetchSearchQuery(query) {
-      console.log(query);
       this.searchWiki(query);
     },
     searchWiki(query) {
-      console.log(query)
-    }
+      axios
+        .get(
+          `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srsearch=${query}`
+        )
+        .then((res) => {
+          this.queryResults = res.data.query.search;
+          this.queryResults = this.queryResults.slice(0, 5); // grab on first top 5 search results
+        })
+        .catch((err) => console.log(err));
+    },
   },
 };
 </script>
