@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-4">
     <h3>YouTube</h3>
-    <div v-bind:key="result.id" v-for="result in youtubeSearchResults">
+    <div v-bind:key="result.etag" v-for="result in youtubeSearchResults">
       <YouTubeSearchResultItem v-bind:result="result" />
     </div>
   </div>

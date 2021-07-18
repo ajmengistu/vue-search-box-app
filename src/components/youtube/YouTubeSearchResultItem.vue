@@ -1,6 +1,6 @@
 <template>
   <div class="mt-4">
-    <a v-bind:href="'https://youtube.com/watch?v=' + result.id" target="_blank">
+    <a v-bind:href="'https://youtube.com/watch?v=' + (typeof result.id === 'object' ? result.id.videoId : result.id)" target="_blank">
       <img v-bind:src="result.snippet.thumbnails.default.url" />
     </a>
     <!-- <div v-html="result.snippet"></div> -->
