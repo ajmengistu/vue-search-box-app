@@ -6,7 +6,8 @@
     >
       <h5>{{ result.title }}</h5>
     </a>
-    <p v-html="result.snippet">{{ result.snippet }}</p>
+    <p v-html="result.snippet"></p>
+    <!-- <p v-html="result.snippet">{{ result.snippet }}</p> -->
   </div>
 </template>
 

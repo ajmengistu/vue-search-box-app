@@ -50,7 +50,7 @@ YouTubeSearchResultList
       this.searchYouTube(query);
     },
     searchYouTube(query) {
-      console.log(query)
+      query
       // axios
       //   .get(
       //     `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}&key=AIzaSyBLybr_kj97vCugo_TbiwGlQhXn9oM9vpQ`
@@ -253,7 +253,6 @@ YouTubeSearchResultList
         )
         .then((res) => {
           this.tmdbQueryResults = res.data.results;
-          console.log(res.data.results);
           this.tmdbQueryResults = this.tmdbQueryResults.slice(0, 5);
         })
         .catch((err) => console.log(err));
@@ -267,7 +266,6 @@ YouTubeSearchResultList
       )
       .then((res) => {
         this.tmdbQueryResults = res.data.results;
-        console.log(res.data.results);
         this.tmdbQueryResults = this.tmdbQueryResults.slice(0, 5);
       })
       .catch((err) => console.log(err));
