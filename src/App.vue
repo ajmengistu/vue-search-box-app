@@ -3,10 +3,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Simultaneous Search</a>
       </div>
     </nav>
-
     <!-- Links -->
     <ul class="container nav justify-content-center mt-4">
       <li class="nav-item"><router-link to="/">Home</router-link> | </li>
